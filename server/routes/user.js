@@ -1,9 +1,10 @@
 const express = require('express')
-const {query} = require('../helpers/db')
+const {query} = require('../helpers/db.js')
 
 const userRouter = express.Router()
 
 userRouter.post("/login",async(req, res) => {
+    console.log(req.body)
     try{
         const sql = "select * from account where email= $1"
         const result = await query(sql,[req.body.email])
@@ -26,6 +27,7 @@ userRouter.post("/login",async(req, res) => {
 })
 
 userRouter.post("/register",async(req, res) => {
+    console.log(req.body)
     try{
         const sql = "insert into account (email, password) values ($1,$2) returning id"
         const result = await query(sql,[req.body.email, req.body.password])

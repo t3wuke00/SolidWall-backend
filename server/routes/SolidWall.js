@@ -1,5 +1,5 @@
 const express = require('express')
-const {query} = require('../helpers/db')
+const {query} = require('../helpers/db.js')
 
 const SolidWallRouter = express.Router()
 

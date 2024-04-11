@@ -1,7 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const { SolidWallRouter} = require("./routes/SolidWall")
-const { userRouter} = require('./routes/user')
+const { userRouter} = require('./routes/user.js')
 
 
 const port = 3001
