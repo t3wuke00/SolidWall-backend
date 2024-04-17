@@ -18,9 +18,9 @@ SolidWallRouter.get("/" ,async(req,res) =>{
 
 SolidWallRouter.post("/new",async(req, res) =>{
     try{
-        const sql = 'insert into post (message) values ($1) returning *'
-        const result = await query(sql,[req.body.message])
-        res.status(200).json({id: result.rows[0].id})
+        const sql = 'insert into post (title,message,account_id) values ($1,$2,$3) returning *'
+        const result = await query(sql,[req.body.title,req.body.message,req.body.account_id])
+        res.status(200).json(result.rows[0])
     }catch (error){
         res.statusMessage = error
         res.status(500).json({error:error})

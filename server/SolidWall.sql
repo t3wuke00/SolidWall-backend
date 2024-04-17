@@ -1,4 +1,3 @@
-
 drop table if exists account;
 
 drop table if exists post;
@@ -9,14 +8,14 @@ CREATE TABLE account (
     password varchar(225) not null
 );
 
-INSERT INTO account (email, password) VALUES ('admin@foo.com', 'admin123');
-
 create table post (
     id serial primary key,
-    message text not null
+    title VARCHAR(100) not null,
+    message text not null,
+    saved TIMESTAMP default CURRENT_TIMESTAMP,
+    account_id int,
+        constraint fk_account
+            foreign key(account_id)
+                references account(id)
+
 );
-
-insert into post (message) values ( 'My test message');
-insert into post (message) values ( 'My another test message')
-
-
