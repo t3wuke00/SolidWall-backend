@@ -1,6 +1,7 @@
+drop table if exists post;
+
 drop table if exists account;
 
-drop table if exists post;
 
 CREATE TABLE account (
     id SERIAL PRIMARY KEY,
